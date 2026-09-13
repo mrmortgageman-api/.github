@@ -15,9 +15,10 @@ This GitHub organization houses the backend systems, AI skill libraries, and web
 | Repo | Visibility | Purpose | Status |
 |---|---|---|---|
 | [mrmortgageman-skills](https://github.com/mrmortgageman-api/mrmortgageman-skills) | Private | Claude AI skill files for content, email, and RevOps | 🟢 Live |
-| [mortgage-scenario-engine](https://github.com/mrmortgageman-api/mortgage-scenario-engine) | Private | WOW Calculator API — mortgage scenario modeling | 🟢 Live |
-| [nextjs-boilerplate](https://github.com/mrmortgageman-api/nextjs-boilerplate) | Private | Active Next.js application (48 Vercel deployments) | 🟢 Live |
-| [skill-library](https://github.com/mrmortgageman-api/skill-library) | Public | Defensive Midfield operator skills for AI agents | 🟢 Live |
+| [scenario-engine-calculators](https://github.com/mrmortgageman-api/scenario-engine-calculators) | Private | Authoritative deterministic calculator services for the Scenario Engine (purchase payment, refinance break-even, and related mortgage math). Contracts and known-answer specs are versioned in `skill-library/scenario-engine-prompts`; deployed separately from the TCA presentation app. | 🟡 Building |
+| [mortgage-scenario-engine](https://github.com/mrmortgageman-api/mortgage-scenario-engine) | Private | WOW Calculator API — early 3-scenario lead-magnet calculator. Not redeployed since 2026-03-13. Confirmed **not** the calculator the Scenario Engine kernel/router reference — do not treat as authoritative. Superseded by `scenario-engine-calculators`. | 🔴 Deprecated |
+| [nextjs-boilerplate](https://github.com/mrmortgageman-api/nextjs-boilerplate) | Private | Active Next.js application (48 Vercel deployments) — hosts the TCA export/presentation tool | 🟢 Live |
+| [skill-library](https://github.com/mrmortgageman-api/skill-library) | Public | Defensive Midfield operator skills for AI agents; also the canonical source for the Scenario Engine kernel and knowledge docs (`scenario-engine-prompts/`) | 🟢 Live |
 
 ***
 
@@ -32,8 +33,14 @@ MrMortgageMan AI Ecosystem
 │       └── Phase 2: SEO, video scripts, social (planned)
 │
 ├── Product Layer
-│   ├── nextjs-boilerplate (web application)
-│   └── mortgage-scenario-engine (WOW Calculator API)
+│   ├── nextjs-boilerplate (web application — TCA presentation/export)
+│   ├── scenario-engine-calculators (authoritative calculator API — building)
+│   └── mortgage-scenario-engine (deprecated — superseded by scenario-engine-calculators)
+│
+├── Governance Layer
+│   └── skill-library/scenario-engine-prompts (Scenario Engine kernel, knowledge docs,
+│       calculator contracts — canonical source; Claude Project and Griff GPT are
+│       manually-synced deployment mirrors of this repo)
 │
 ├── Automation Layer (external)
 │   ├── HubSpot CRM
@@ -51,7 +58,7 @@ MrMortgageMan AI Ecosystem
 ## Tech Stack
 
 - **Frontend:** Next.js, Vercel
-- **API:** Node.js (mortgage-scenario-engine)
+- **API:** Node.js (`scenario-engine-calculators` — authoritative; `mortgage-scenario-engine` deprecated, do not build against it)
 - **AI:** Claude Code, Claude API
 - **CRM:** HubSpot
 - **Automation:** Zapier
